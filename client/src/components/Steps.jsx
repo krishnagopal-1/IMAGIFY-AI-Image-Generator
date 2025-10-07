@@ -16,7 +16,7 @@ function Step() {
             <div className='space-y-4 w-full max-w-3xl text-sm'>
                 {
                     stepsData.map((item, index) => (
-                        <div className='flex items-center gap-4 p-5 px-8 bg-white/20 shadow-md border border-gray-300 cursor-pointer hover:scale-[1.02] transition-all duration-300 rounded-lg' key={index}>
+                        <div className='flex items-center gap-4 p-5 px-8 bg-white/20 shadow-md border border-gray-300 hover:scale-[1.02] transition-all duration-300 rounded-lg' key={index}>
                             <img src={item.icon} alt="" width={40} />
                             <div>
                                 <h2 className='text-xl font-medium'>{item.title}</h2>

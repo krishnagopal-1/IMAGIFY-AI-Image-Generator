@@ -17,7 +17,7 @@ function Testimonials() {
                 {
                     testimonialsData.map((testimonial, index) => (
                         <div
-                            className='bg-white/20 p-12 rounded-lg shadow-md border w-80 cursor-pointer hover:scale-[1.02] transition-all'
+                            className='bg-white/20 p-12 rounded-lg shadow-md border w-80 hover:scale-[1.02] transition-all'
                             key={index}
                         >
                             <div className='flex flex-col items-center'>
