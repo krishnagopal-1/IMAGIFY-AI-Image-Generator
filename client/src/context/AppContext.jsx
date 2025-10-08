@@ -36,14 +36,13 @@ const AppContextProvider = (props) => {
                 { headers: { token } }
             );
 
-            await loadCreditsData();
-            if (data.creditBalance === 0) {
-                navigate('/buy');
-            }
-
             if (data.success) {
+                await loadCreditsData()
                 return data.resultImage;
             } else {
+                if (data.creditBalance === 0) {
+                    navigate('/buy');
+                }
                 toast.error(data.message);
             }
         } catch (error) {
