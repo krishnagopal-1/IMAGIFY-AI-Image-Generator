@@ -4,7 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { AppContext } from '../context/AppContext';
 
 function NavBar() {
-    const { user, setShowLogin } = useContext(AppContext);
+    const { user, setShowLogin, logout, credit } = useContext(AppContext);
     const navigate = useNavigate();
 
     return (
@@ -23,17 +23,17 @@ function NavBar() {
                             >
                                 <img src={assets.credit_star} alt="" className='w-5' />
                                 <p className='text-xs sm:text-sm font-medium text-gray-600'>
-                                    Credits left : 5
+                                    Credits left : {credit}
                                 </p>
                             </button>
 
-                            <p className='text-gray-600 max-sm:hidden pl-4'>Hi, UserName</p>
+                            <p className='text-gray-600 max-sm:hidden pl-4'>Hi, {user.name}</p>
 
                             <div className='relative group'>
                                 <img src={assets.profile_icon} className='w-10 drop-shadow-2xl' alt="" />
                                 <div className='absolute hidden group-hover:block top-0 right-0 z-10 text-black rounded pt-12'>
                                     <ul className='list-none m-0 p-2 rounded-md bg-white border text-sm'>
-                                        <li className='py-1 px-2 pr-10 cursor-pointer'>Logout</li>
+                                        <li onClick={logout} className='py-1 px-2 pr-10 cursor-pointer'>Logout</li>
                                     </ul>
                                 </div>
                             </div>
