@@ -18,11 +18,21 @@ function BuyCredit() {
       amount: order.amount,
       currency: order.currency,
       name: 'Credits Payment',
-      description : 'Credits Payment',
+      description: 'Credits Payment',
       order_id: order.id,
       receipt: order.receipt,
-      handler: async (res) =>{
-        console.log(res);
+      handler: async (response) => {
+        try {
+          const { data } = await axios.post(backendUrl + '/api/user/verify-razor', response, { headers: { token } })
+
+          if (data.success) {
+            loadCreditsData()
+            navigate('/')
+            toast.success('Credit Added')
+          }
+        } catch (error) {
+          toast.error(error.message)
+        }
       }
     }
 
