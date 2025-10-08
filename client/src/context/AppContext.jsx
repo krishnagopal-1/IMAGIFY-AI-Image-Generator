@@ -40,10 +40,10 @@ const AppContextProvider = (props) => {
                 await loadCreditsData()
                 return data.resultImage;
             } else {
+                toast.error(data.message);
                 if (data.creditBalance === 0) {
                     navigate('/buy');
                 }
-                toast.error(data.message);
             }
         } catch (error) {
             toast.error(error.message);
